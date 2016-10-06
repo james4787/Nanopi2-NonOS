@@ -9,12 +9,12 @@
 
 void S5P4418_CLK_Init()
 {   
-	/*PLL0=1.2GHz*/
+	/*PLL0=550MHz*/
         SysCtrl->PLL_SETREG0 &= ~0xFFF;
-	SysCtrl->PLL_SETREG0 |= PLL0_1200M_VALUE;
-	/*PLL1=550MHz*/
+	SysCtrl->PLL_SETREG0 |= PLL0_550M_VALUE;
+	/*PLL1=1200MHz*/
         SysCtrl->PLL_SETREG1 &= ~0xFFF;
-	SysCtrl->PLL_SETREG1 |= PLL0_550M_VALUE;
+	SysCtrl->PLL_SETREG1 |= PLL0_1200M_VALUE;
 	/*PLL2=800MHz*/
         SysCtrl->PLL_SETREG2 &= ~0xFFF;
 	SysCtrl->PLL_SETREG2 |= PLL1_800M_VALUE;
@@ -23,7 +23,7 @@ void S5P4418_CLK_Init()
 	SysCtrl->PLL_SETREG3 |= PLL1_600M_VALUE;
 	/*FCLK=1.2GHz,HCLK=300MHz*/
         SysCtrl->CLK_DIVREG0 &= ~0x1FFF;
-	SysCtrl->CLK_DIVREG0 |= ((3 << 9)|(0 << 3)| 0);        
+	SysCtrl->CLK_DIVREG0 |= ((3 << 9)|(0 << 3)| 1);        
 	/*BCLK=400MHz,PCLK=200MHz*/
 	SysCtrl->CLK_DIVREG1 &= ~0x1FFF;
  	SysCtrl->CLK_DIVREG1 |= ((3 << 9)|(1 << 3)| 2);
